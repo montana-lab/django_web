@@ -5,8 +5,11 @@
             <div class="date">
                 {{ post.published_date}}
             </div>
-        {%endif%}
+        {% else %}
+            <a class="btn btn-primary" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+        {% endif %}
         <a class="btn btn-warning" href="{% url 'post_edit' pk=post.pk %}"><i class="fa fa-pencil"></i>수정</a>
+        
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr}}</p>
     </div>
